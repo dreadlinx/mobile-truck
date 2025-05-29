@@ -6,7 +6,6 @@
     <title>Contact Us | MOBILE TRUCK CLINIC</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Reuse the CSS from index.html */
         :root {
             --primary: #004aad;
             --primary-dark: #003a8a;
@@ -266,47 +265,6 @@
             color: var(--primary);
             font-size: 24px;
             cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1559028465-7dab71a64d38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: fadeInDown 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            animation: fadeIn 1.5s ease;
         }
 
         /* Footer */
@@ -791,6 +749,29 @@
         .emergency-note i {
             margin-right: 8px;
         }
+        
+        /* Formspree Success Message */
+        .form-success {
+            display: none;
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .form-error {
+            display: none;
+            background: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
     </style>
 </head>
 <body>
@@ -820,7 +801,6 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
-                
                 <a href="contact.html" class="active">Contact</a>
             </nav>
             
@@ -922,25 +902,25 @@
                 <!-- Contact Form -->
                 <div class="contact-form-container fade-in" id="contact-form">
                     <h2>Send Us a Message</h2>
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/f/xovwaajl" method="POST">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" required>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="service">Service Needed</label>
-                            <select id="service" class="form-control" required>
+                            <select id="service" name="service" class="form-control" required>
                                 <option value="">Select a service</option>
                                 <option value="repair">Truck Repair</option>
                                 <option value="breakdown">Breakdown Assistance</option>
@@ -952,13 +932,24 @@
                         
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" class="form-control" placeholder="How can we help you?" required></textarea>
+                            <textarea id="message" name="message" class="form-control" placeholder="How can we help you?" required></textarea>
                         </div>
+                        
+                        <!-- Formspree hidden fields -->
+                        <input type="hidden" name="_subject" value="New Contact Form Submission">
+                        <input type="hidden" name="_next" value="https://mobiletruckclinic.co.za/thank-you.html">
+                        <input type="hidden" name="_language" value="en">
                         
                         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 18px;">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
+                    <div id="formSuccess" class="form-success">
+                        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+                    </div>
+                    <div id="formError" class="form-error">
+                        <i class="fas fa-exclamation-triangle"></i> There was an error sending your message. Please try again.
+                    </div>
                 </div>
             </div>
             
@@ -1015,7 +1006,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
                         <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></l
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
                         <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
@@ -1069,30 +1060,50 @@
             }
         });
         
-        // Form Submission
+        // Form Submission with Formspree
         const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
         
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 const submitBtn = this.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
                 
+                // Hide previous messages
+                formSuccess.style.display = 'none';
+                formError.style.display = 'none';
+                
                 // Show loading state
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
                 
-                // Simulate form submission
-                setTimeout(() => {
-                    // Show success message
-                    alert('Thank you! Your message has been received. We will contact you shortly.');
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: new FormData(this),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
                     
-                    // Reset form
-                    contactForm.reset();
+                    if (response.ok) {
+                        // Show success message
+                        formSuccess.style.display = 'block';
+                        this.reset();
+                    } else {
+                        // Show error message
+                        formError.style.display = 'block';
+                    }
+                } catch (error) {
+                    // Show error message
+                    formError.style.display = 'block';
+                } finally {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
-                }, 1500);
+                }
             });
         }
         

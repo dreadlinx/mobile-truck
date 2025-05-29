@@ -42,7 +42,7 @@
         img {
             max-width: 100%;
             height: auto;
-            display: block; /* Added for better image control */
+            display: block;
         }
 
         .container {
@@ -816,6 +816,29 @@
             filter: grayscale(0%);
         }
         
+        /* Formspree Success/Error Messages */
+        .form-success {
+            display: none;
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .form-error {
+            display: none;
+            background: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
         /* FIXES FOR MOBILE VIEW */
         @media (max-width: 768px) {
             /* Service detail content */
@@ -1025,7 +1048,6 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html" class="active">Services</a>
-                
                 <a href="contact.html">Contact</a>
             </nav>
             
@@ -1114,18 +1136,34 @@
             <div class="service-detail fade-in">
                 <h2>24/7 Breakdown Assistance</h2>
                 <div class="service-detail-content">
-                    <div class="service-detail-image">
-                        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t1.6435-9/73098658_526071724790916_5679069525597749248_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=IepwaJix8ZIQ7kNvwEcM8js&_nc_oc=Adna-jJAsUbFBQbYMMXQOMu3xYugj1yoSwb3JzQh7eLrxukQznNRUiq8CyW47USiEg4&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=847OAWvLZu-f24J2iEw2yg&oh=00_AfJnkOBnBRRaNX6vFKx0fnyIioIlCTKp7gcRMpbinOoA0A&oe=685F8CC3" alt="Breakdown Assistance">
-                    </div>
                     <div class="service-detail-text">
                         <p>When your truck breaks down, every minute counts. Our 24/7 emergency response team is always ready to come to your location anywhere in Gauteng to get you back on the road as quickly as possible.</p>
                         <p>Our mobile workshops are equipped with all necessary tools and parts to handle most repairs on-site. If your truck needs towing, we'll arrange transportation to our facility for comprehensive repairs.</p>
-                        <ul style="margin-top: 20px; padding-left: 20px;">
-                            <li>Rapid response - average arrival time under 45 minutes</li>
-                            <li>On-site diagnostics and repairs</li>
-                            <li>Towing services available</li>
-                            <li>Nationwide network for out-of-area breakdowns</li>
-                        </ul>
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-clock"></i>
+                                <h4>Rapid Response</h4>
+                                <p>Average arrival time under 45 minutes</p>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-tools"></i>
+                                <h4>On-site Repairs</h4>
+                                <p>Diagnostics and repairs performed at your location</p>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-truck-moving"></i>
+                                <h4>Towing Services</h4>
+                                <p>Safe towing to our facility if needed</p>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-globe-africa"></i>
+                                <h4>Nationwide Network</h4>
+                                <p>Assistance for out-of-area breakdowns</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-detail-image">
+                        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t1.6435-9/73098658_526071724790916_5679069525597749248_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=IepwaJix8ZIQ7kNvwEcM8js&_nc_oc=Adna-jJAsUbFBQbYMMXQOMu3xYugj1yoSwb3JzQh7eLrxukQznNRUiq8CyW47USiEg4&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=847OAWvLZu-f24J2iEw2yg&oh=00_AfJnkOBnBRRaNX6vFKx0fnyIioIlCTKp7gcRMpbinOoA0A&oe=685F8CC3" alt="Breakdown Assistance">
                     </div>
                 </div>
                 <div class="service-cta">
@@ -1172,6 +1210,50 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Service 4: Trailer Repairs & Maintenance -->
+            <div class="service-detail fade-in">
+                <h2>Trailer Repairs & Maintenance</h2>
+                <div class="service-detail-content">
+                    <div class="service-detail-text">
+                        <p>Keep your trailers roadworthy and compliant with our expert trailer repair and maintenance services. We handle all types of commercial trailers, ensuring your fleet operates safely and efficiently.</p>
+                        <p>Our mobile units are equipped to perform most trailer repairs on-site, minimizing downtime and keeping your business moving.</p>
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-trailer"></i>
+                                <h4>Axle & Suspension</h4>
+                                <p>Repairs and replacements for axles, leaf springs, and air suspension</p>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <h4>Brake Systems</h4>
+                                <p>Trailer brake inspection, adjustment, and replacement</p>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-lightbulb"></i>
+                                <h4>Lighting & Wiring</h4>
+                                <p>Trailer lighting, wiring, and connector repairs</p>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-tools"></i>
+                                <h4>Body & Floor Repairs</h4>
+                                <p>Panel, door, and floor repairs for all trailer types</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trailer Repairs">
+                    </div>
+                </div>
+                <div class="service-cta">
+                    <h3>Need Trailer Repairs?</h3>
+                    <p>Contact us for fast, reliable trailer maintenance and repairs at your location</p>
+                    <a href="tel:+27835140114" class="btn btn-primary">
+                        <i class="fas fa-phone-alt"></i> Call for Trailer Service: 083 514 0114
+                    </a>
+                </div>
+            </div>
+
             
             <!-- Brands We Service -->
             <div class="fade-in" style="text-align: center; margin: 60px 0;">
@@ -1185,33 +1267,33 @@
                 </div>
             </div>
             
-            <!-- Quote Form -->
+            <!-- Quote Form with Formspree -->
             <div class="quote-form fade-in" id="quote-form">
                 <h3>Request a Service Quote</h3>
-                <form id="quoteForm">
+                <form id="quoteForm" action="https://formspree.io/f/xovwaajl" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" required>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="truck">Truck Make & Model</label>
-                            <input type="text" id="truck" class="form-control" required>
+                            <input type="text" id="truck" name="truck_model" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="service">Service Required</label>
-                        <select id="service" class="form-control" required>
+                        <select id="service" name="service_type" class="form-control" required>
                             <option value="">Select a service</option>
                             <option value="repair">Truck Repair</option>
                             <option value="breakdown">Breakdown Assistance</option>
@@ -1223,12 +1305,24 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Service Details</label>
-                        <textarea id="message" class="form-control" placeholder="Describe the issues you're experiencing or the service you need" required></textarea>
+                        <textarea id="message" name="message" class="form-control" placeholder="Describe the issues you're experiencing or the service you need" required></textarea>
                     </div>
+                    
+                    <!-- Formspree hidden fields -->
+                    <input type="hidden" name="_subject" value="New Service Quote Request">
+                    <input type="hidden" name="_next" value="https://mobiletruckclinic.co.za/thank-you.html">
+                    <input type="hidden" name="_language" value="en">
+                    
                     <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 18px;">
                         Request Quote
                     </button>
                 </form>
+                <div id="formSuccess" class="form-success">
+                    <i class="fas fa-check-circle"></i> Thank you! Your quote request has been received.
+                </div>
+                <div id="formError" class="form-error">
+                    <i class="fas fa-exclamation-triangle"></i> There was an error sending your request. Please try again.
+                </div>
             </div>
         </div>
     </section>
@@ -1355,33 +1449,53 @@
             }
         });
         
-        // Form Submission
+        // Form Submission with Formspree
         const quoteForm = document.getElementById('quoteForm');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
         
         if (quoteForm) {
-            quoteForm.addEventListener('submit', function(e) {
+            quoteForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 const submitBtn = this.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
                 
+                // Hide previous messages
+                formSuccess.style.display = 'none';
+                formError.style.display = 'none';
+                
                 // Show loading state
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
                 
-                // Simulate form submission
-                setTimeout(() => {
-                    // Show success message
-                    alert('Thank you! Your quote request has been received. We will contact you shortly with more information.');
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: new FormData(this),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
                     
-                    // Reset form
-                    quoteForm.reset();
+                    if (response.ok) {
+                        // Show success message
+                        formSuccess.style.display = 'block';
+                        this.reset();
+                    } else {
+                        // Show error message
+                        formError.style.display = 'block';
+                    }
+                } catch (error) {
+                    // Show error message
+                    formError.style.display = 'block';
+                } finally {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                     
-                    // Scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, 1500);
+                    // Scroll to success message
+                    formSuccess.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         }
         
